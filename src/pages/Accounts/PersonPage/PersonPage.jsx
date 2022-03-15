@@ -5,6 +5,7 @@ import data from "../../../data";
 const PersonPage = () => {
     const param = useParams()
     const findedItem = data.find(item => item.id === Number(param.id)) 
+    
     if(findedItem){
         const { id, name, owner, createdOn } = findedItem;
         return <table border="1" align="center">
