@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import data from '../../data'
+import './Accounts.css'
 
 const Accounts = () => {
-    return <table border="1" align="center">
+    return <table className='table'>
         <tbody>
             <tr>
                 <th>ID</th>
@@ -28,7 +29,5 @@ const Accounts = () => {
         </tbody>
     </table>
 }
-
-
 
 export default Accounts
