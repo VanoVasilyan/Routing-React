@@ -2,9 +2,9 @@ import { useParams, Navigate } from "react-router-dom";
 import { useGlobalContext } from "../../context";
 
 const PersonPage = () => {
-    const { list } = useGlobalContext();
+    const { getUserById } = useGlobalContext();
     const param = useParams();
-    const findedItem = list.find(item => item.id === Number(param.id));
+    const findedItem = getUserById(param.id)
     if (findedItem) {
         const { id, name, owner, createdOn } = findedItem;
         return <table border="1" align="center">

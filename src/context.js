@@ -1,12 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import data from "./data";
 
 const AppContext = React.createContext()
 const AppProvider = ({ children }) => {
-    const [list, setList] = useState(data)
+    const getAllUsers = () => data
+    const getUserById = (id) => {
+        const findedItem = getAllUsers().find(item => item.id === Number(id))
+        return findedItem
+    }
     return <AppContext.Provider value={{
-        list,
-        setList
+        getAllUsers,
+        getUserById
     }}>
         {children}
     </AppContext.Provider>
