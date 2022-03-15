@@ -5,7 +5,7 @@ const AppContext = React.createContext()
 const AppProvider = ({ children }) => {
     const getAllUsers = () => data
     const getUserById = (id) => {
-        const findedItem = getAllUsers().find(item => item.id === Number(id))
+        const findedItem = data.find(item => item.id === Number(id))
         return findedItem
     }
     return <AppContext.Provider value={{

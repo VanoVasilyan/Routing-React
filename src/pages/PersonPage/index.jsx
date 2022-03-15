@@ -3,8 +3,8 @@ import { useGlobalContext } from "../../context";
 
 const PersonPage = () => {
     const { getUserById } = useGlobalContext();
-    const param = useParams();
-    const findedItem = getUserById(param.id)
+    const {id} = useParams();
+    const findedItem = getUserById(id)
     if (findedItem) {
         const { id, name, owner, createdOn } = findedItem;
         return <table border="1" align="center">

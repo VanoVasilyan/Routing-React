@@ -4,7 +4,7 @@ import './Accounts.css'
 
 const Accounts = () => {
     const { getAllUsers } = useGlobalContext();
-    const data = getAllUsers()
+    const allUsers = getAllUsers()
     return <table className='table'>
         <tbody>
             <tr>
@@ -15,7 +15,7 @@ const Accounts = () => {
                 <th>Action</th>
             </tr>
             {
-                data.map(elem => {
+                allUsers.map(elem => {
                     const { id, name, owner, createdOn, action } = elem;
                     return <tr key={id}>
                         <td>{id}</td>
