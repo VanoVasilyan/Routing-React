@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
-import data from '../../data'
+import { useGlobalContext } from '../../context'
 import './Accounts.css'
 
 const Accounts = () => {
+    const {list} = useGlobalContext();
     return <table className='table'>
         <tbody>
             <tr>
@@ -13,7 +14,7 @@ const Accounts = () => {
                 <th>Action</th>
             </tr>
             {
-                data.map(elem => {
+                list.map(elem => {
                     const { id, name, owner, createdOn, action } = elem;
                     return <tr key={id}>
                         <td>{id}</td>
