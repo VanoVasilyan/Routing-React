@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import data from "./data";
 
 const AppContext = React.createContext()
+
 const AppProvider = ({ children }) => {
     const getAllUsers = () => data
     const getUserById = (id) => {
-        const findedItem = data.find(item => item.id === Number(id))
-        return findedItem
+        const currentPerson = data.find(item => item.id === Number(id))
+        return currentPerson
     }
+    
     return <AppContext.Provider value={{
         getAllUsers,
         getUserById
@@ -15,6 +17,7 @@ const AppProvider = ({ children }) => {
         {children}
     </AppContext.Provider>
 }
+
 const useGlobalContext = () => {
     return useContext(AppContext)
 }

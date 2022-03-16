@@ -5,6 +5,7 @@ import './Accounts.css'
 const Accounts = () => {
     const { getAllUsers } = useGlobalContext();
     const allUsers = getAllUsers()
+    
     return <table className='table'>
         <tbody>
             <tr>
