@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
-import data from '../../data'
+import { useGlobalContext } from '../../context'
 import './Accounts.css'
 
 const Accounts = () => {
+    const { data } = useGlobalContext();
+    
     return <table className='table'>
         <tbody>
             <tr>

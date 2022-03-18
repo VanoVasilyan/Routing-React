@@ -1,11 +1,14 @@
 import { useParams, Navigate } from "react-router-dom";
-import data from "../../data";
+import { useGlobalContext } from "../../context";
 
 const PersonPage = () => {
-    const param = useParams();
-    const findedItem = data.find(item => item.id === Number(param.id));
-    if (findedItem) {
-        const { id, name, owner, createdOn } = findedItem;
+    const { getUserById } = useGlobalContext();
+    const { id } = useParams();
+    const currentPerson = getUserById(id)
+
+    if (currentPerson) {
+        const { id, name, owner, createdOn } = currentPerson;
+
         return <table border="1" align="center">
             <tbody>
                 <tr>
@@ -31,6 +34,7 @@ const PersonPage = () => {
             </tbody>
         </table>
     }
+    
     return <Navigate to="/accounts" />
 }
 
